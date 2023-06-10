@@ -6,7 +6,7 @@ load_dotenv()
 token = os.getenv('TOKEN')
 guild_id = os.getenv('GUILD_ID')
 
-client = discord.Bot(intents=discord.Intents.all())
+client = discord.Bot(owner_id = 729571283645366293, intents = discord.Intents.all())
 
 @client.event
 async def on_ready():
