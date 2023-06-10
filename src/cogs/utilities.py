@@ -3,13 +3,14 @@ from discord.ext import commands
 import os
 
 guild_id = os.getenv('GUILD_ID')
+owner_id = os.getenv('OWNER_ID')
 
 class Utilities(commands.Cog):
     def __init__(self, client):
         self.bot = client
         
     async def is_owner(ctx):
-        return ctx.author.id == 729571283645366293
+        return ctx.author.id == owner_id
         
     @discord.slash_command(description='Clear a specified number of messages', guild_ids=[guild_id])
     @commands.check(is_owner)
