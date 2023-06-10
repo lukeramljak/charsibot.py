@@ -1,16 +1,17 @@
 import discord
 from discord.ext import commands
 import os
+import requests
 
 guild_id = os.getenv('GUILD_ID')
 
 class Fun(commands.Cog):
-    
+        
     def __init__(self, client):
         self.bot = client
-        
+            
     @discord.slash_command(
-        description='Bonk someone!',
+        description = 'Bonk someone!',
         guild_ids = [guild_id]
     )
     async def bonk(
@@ -24,7 +25,7 @@ class Fun(commands.Cog):
         await ctx.respond(f'{ctx.author.name} has bonked {name.mention}. Oh my...')
         
     @discord.slash_command(
-        description='Brain not working?',
+        description = 'Brain not working?',
         guild_ids = [guild_id]
     )
     async def brain(
@@ -38,7 +39,7 @@ class Fun(commands.Cog):
         await ctx.respond(f'Oh dear, it looks like {name.mention}\'s brain has stopped working... Please wait a moment while it restarts. <:rip:1057489640636035102>')
         
     @discord.slash_command(
-        description='Tuck someone into bed',
+        description = 'Tuck someone into bed',
         guild_ids = [guild_id]
     )
     async def burrito(
@@ -51,8 +52,23 @@ class Fun(commands.Cog):
     ):
         await ctx.respond(f'{ctx.author.name} has tucked {name.mention} into a burrito blanket. awwwww goodnight {name.name} <:BurritoBlanket:1021275794678497291>')
         
+            
     @discord.slash_command(
-        description='Hug another user',
+        description = 'Get a random dad joke',
+        guild_ids = [guild_id]
+    )
+    async def dadjoke(
+        self,
+        ctx
+    ):
+        response = requests.get('https://icanhazdadjoke.com', headers = {'Accept': 'application/json'})
+        joke_data = response.json()
+        joke = joke_data['joke']
+        await ctx.respond(joke)
+        
+          
+    @discord.slash_command(
+        description = 'Hug another user',
         guild_ids = [guild_id]
     )
     async def hug(
@@ -70,17 +86,18 @@ class Fun(commands.Cog):
         if message.author == self.bot.user:
             return
         
-        if 'but' in message.content.lower():
-            await message.channel.send('butt')
+        content = message.content.lower()
+        if 'but' in content:
+            await message.reply('butt')
             
-        if 'cow' in message.content.lower():
-            await message.channel.send('MOOOOO! <:ANGERY:1021275434823995475>')
+        if 'cow' in message.content:
+            await message.reply('MOOOOO! <:ANGERY:1021275434823995475>')
             
-        if 'egg' in message.content.lower():
-            await message.channel.send('egg')
+        if 'egg' in message.content:
+            await message.reply('egg')
         
-        if 'dog' in message.content.lower():
-            await message.channel.send('what the dog doin\'?')
+        if 'dog' in message.content:
+            await message.reply('what the dog doin\'?')
 
 def setup(client):
     client.add_cog(Fun(client))
