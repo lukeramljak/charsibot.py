@@ -18,12 +18,21 @@ Before running the bot, make sure you have the following installed:
     ``TOKEN=your-bot-token-goes-here``  
     ``GUILD_ID=your-guild-id-goes-here``
 
-3. Run the bot. I'm using a VPS, so I run the following:
+## Deploying the Bot
+The following steps are for running the bot on a VPS.
+
+1. Ensure that python3-pip is installed.
+
+2. cd into the bot directory and install dependencies as above.
+
+3. Run the bot in the background:
 
 `` nohup python3 bot.py & ``
 
-4. Verify the bot is running: After running the '**nohup**' command, the bot should start running in the background. You can verify this by checking the console output. If everything is working correctly, you should see a message like "**nohup: ignoring input and appending output to 'nohup.out'**". This indicates that your bot is running and any console output is being redirected to the '**nohup.out**' file.
+4. If everything is working correctly, you should see a message like "**nohup: ignoring input and appending output to 'nohup.out'**". This indicates that the bot is running and any console output is being redirected to the '**nohup.out**' file.
 
-5. Detach from the session by either using the '**exit**' command or '**Ctrl + D**'. This will leave the bot running in the background.
+5. Check Discord to ensure the bot's status is **Online**. 
+
+6. Detach from the session by either using the '**exit**' command or '**Ctrl + D**'. This will leave the bot running in the background.
 
     1. Note: If you want to stop the bot at any time, you can use tools like '**ps**' and '**kill**' to find the bot's process ID (PID) and terminate it. For example, you can use '**ps aux | grep bot.py**' to find the process ID and then use '**kill \<pid>**' to stop the bot.
