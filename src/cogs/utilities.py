@@ -5,18 +5,13 @@ import os
 guild_id = os.getenv('GUILD_ID')
 
 class Utilities(commands.Cog):
-    
     def __init__(self, client):
         self.bot = client
         
     async def is_owner(ctx):
         return ctx.author.id == 729571283645366293
         
-    @discord.slash_command(
-        name = 'clear',
-        description = 'Clear a specified number of messages',
-        guild_ids = [guild_id],
-    )
+    @discord.slash_command(description = 'Clear a specified number of messages', guild_ids = [guild_id])
     @commands.check(is_owner)
     async def clear(self, ctx, amount: int):            
         if not 1 <= amount <= 100:
@@ -30,6 +25,10 @@ class Utilities(commands.Cog):
         except Exception as e:
             print(e)
             await ctx.respond('An error occurred while trying to clear messages.', ephemeral=True)
+            
+    @discord.slash_command(description = 'Check charsibot\'s ping', guild_ids = [guild_id])
+    async def ping(self, ctx):
+        await ctx.send(f'Pong! Bot Latency: {round(ctx.bot.latency * 1000)}ms')
     
 def setup(client):
     client.add_cog(Utilities(client))
