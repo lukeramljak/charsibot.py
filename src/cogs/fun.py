@@ -66,7 +66,6 @@ class Fun(commands.Cog):
         joke = joke_data['joke']
         await ctx.respond(joke)
         
-          
     @discord.slash_command(
         description = 'Hug another user',
         guild_ids = [guild_id]
@@ -80,6 +79,19 @@ class Fun(commands.Cog):
         )
     ):
         await ctx.respond(f'_hugs {name.mention}_')
+        
+    @discord.slash_command(
+        description = 'Having a bad day? Get a random positive quote',
+        guild_ids = [guild_id]
+    )
+    async def quote(
+        self,
+        ctx
+    ):
+        response = requests.get('https://zenquotes.io/api/random')
+        quote_data = response.json()
+        quote = quote_data[0]['q']
+        await ctx.respond(quote)
         
     @commands.Cog.listener()
     async def on_message(self, message):
