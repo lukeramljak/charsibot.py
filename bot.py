@@ -7,18 +7,11 @@ token = os.getenv('TOKEN')
 
 intents = discord.Intents.default()
 intents.message_content = True
-
-client = discord.Client(intents=intents)
+client = discord.Bot()
 
 @client.event
 async def on_ready():
     print(f'Logged in as {client.user}')
-
-@client.event
-async def on_message(message):
-    if message.author == client.user:
-        return
-    if message.content.startswith('egg'):
-        await message.channel.send('egg')
+    print('----------')
         
 client.run(token)
