@@ -2,3 +2,4 @@ venv
 ssh.txt
 .gitignore
 .env
+charsibot.key
