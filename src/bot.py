@@ -16,8 +16,7 @@ async def on_ready():
     print('----------')
 
 cogs_list = [
-    'fun',
-    'help',
+    'fun'
     'utilities'
 ]
 
