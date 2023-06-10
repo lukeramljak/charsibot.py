@@ -22,6 +22,8 @@ Before running the bot, make sure you have the following installed:
 
 `` nohup python3 bot.py & ``
 
-4. Detach from the session by either using the '**exit**' command or '**Ctrl + D**'. This will leave the bot running in the background.
+4. Verify the bot is running: After running the '**nohup**' command, the bot should start running in the background. You can verify this by checking the console output. If everything is working correctly, you should see a message like "**nohup: ignoring input and appending output to 'nohup.out'**". This indicates that your bot is running and any console output is being redirected to the '**nohup.out**' file.
+
+5. Detach from the session by either using the '**exit**' command or '**Ctrl + D**'. This will leave the bot running in the background.
 
     1. Note: If you want to stop the bot at any time, you can use tools like '**ps**' and '**kill**' to find the bot's process ID (PID) and terminate it. For example, you can use '**ps aux | grep bot.py**' to find the process ID and then use '**kill \<pid>**' to stop the bot.
