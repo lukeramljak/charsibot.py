@@ -8,15 +8,13 @@ guild_id = os.getenv('GUILD_ID')
 
 client = discord.Bot(intents=discord.Intents.all())
 
-client.remove_application_command('help')
-
 @client.event
 async def on_ready():
-    print(f'Logged in as {client.user}')
+    print(f'Logged in as {client.user.name}')
     print('----------')
 
 cogs_list = [
-    'fun'
+    'fun',
     'utilities'
 ]
 
