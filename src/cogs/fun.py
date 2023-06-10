@@ -51,6 +51,20 @@ class Fun(commands.Cog):
     ):
         await ctx.respond(f'{ctx.author.name} has tucked {name.mention} into a burrito blanket. awwwww goodnight {name.name} <:BurritoBlanket:1021275794678497291>')
         
+    @discord.slash_command(
+        description='Give a hug to another user.',
+        guild_ids = [guild_id]
+    )
+    async def hug(
+        self,
+        ctx,
+        name: discord.Option(
+            discord.SlashCommandOptionType.user,
+            required = True
+        )
+    ):
+        await ctx.respond(f'_hugs {name.mention}_')
+        
     @commands.Cog.listener()
     async def on_message(self, message):
         if message.author == self.bot.user:
