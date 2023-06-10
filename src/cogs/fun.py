@@ -16,10 +16,6 @@ class Fun(commands.Cog):
         name: discord.Option(discord.SlashCommandOptionType.user, 'Who\'s getting bonked?', required = True)
     ):
         await ctx.respond(f'{ctx.author.name} has bonked {name.mention}. Oh my...')
-    
-    @discord.slash_command(guild_ids=[guild_id])
-    async def ping(self, ctx):
-        await ctx.respond('Pong!')
         
     @commands.Cog.listener()
     async def on_message(self, message):
@@ -27,16 +23,16 @@ class Fun(commands.Cog):
             return
         
         if 'but' in message.content.lower():
-            await message.reply('butt')
+            await message.channel.send('butt')
             
         if 'cow' in message.content.lower():
-            await message.reply('MOOOOO! <:ANGERY:1021275434823995475>')
+            await message.channel.send('MOOOOO! <:ANGERY:1021275434823995475>')
             
         if 'egg' in message.content.lower():
-            await message.reply('egg')
+            await message.channel.send('egg')
         
         if 'dog' in message.content.lower():
-            await message.reply('what the dog doin\'?')
+            await message.channel.send('what the dog doin\'?')
 
 def setup(client):
     client.add_cog(Fun(client))
