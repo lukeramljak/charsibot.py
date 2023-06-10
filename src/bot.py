@@ -12,7 +12,13 @@ client = discord.Bot(intents=discord.Intents.all())
 async def on_ready():
     print(f'Logged in as {client.user}')
     print('----------')
-    
-client.load_extension('cogs.fun')
+
+cogs_list = [
+    'fun',
+    'utilities'
+]
+
+for cog in cogs_list:
+    client.load_extension(f'cogs.{cog}')
         
 client.run(token)

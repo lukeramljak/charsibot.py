@@ -155,7 +155,7 @@ class Fun(commands.Cog):
         )
     ):
         await ctx.respond(f'{ctx.author.name} has given {name.mention} a big smooch. MWAHHH! <:Witch:1021275389508734987>')
-        
+
     @discord.slash_command(
         description = 'Toss a tomato!',
         guild_ids = [guild_id]
