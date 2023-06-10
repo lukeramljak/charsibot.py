@@ -38,28 +38,28 @@ class Fun(commands.Cog):
         await ctx.respond(f'Oh dear, it looks like {name.mention}\'s brain has stopped working... Please wait a moment while it restarts. <:rip:1057489640636035102>')
         
     @discord.slash_command(
-        description='Tuck someone into bed.',
+        description='Tuck someone into bed',
         guild_ids = [guild_id]
     )
     async def burrito(
         self,
         ctx,
         name: discord.Option(
-            discord.SlashCommandOptionType.user, 'Tuck someone into bed.',
+            discord.SlashCommandOptionType.user, 'Tuck someone into bed',
             required = True
         )
     ):
         await ctx.respond(f'{ctx.author.name} has tucked {name.mention} into a burrito blanket. awwwww goodnight {name.name} <:BurritoBlanket:1021275794678497291>')
         
     @discord.slash_command(
-        description='Hug another user.',
+        description='Hug another user',
         guild_ids = [guild_id]
     )
     async def hug(
         self,
         ctx,
         name: discord.Option(
-            discord.SlashCommandOptionType.user, 'Hug another user.',
+            discord.SlashCommandOptionType.user, 'Hug another user',
             required = True
         )
     ):
