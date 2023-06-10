@@ -32,13 +32,13 @@ The following steps assume you running the bot on a VPS with any Linux distro.
 - You may need to run this command frequently when making changes to the bot. To save time, create a shell script named '**bot-start**' in the '**~/.local/bin**' directory. By placing it here, it will be added to your PATH, allowing you to run it from anywhere without navigating to the specific directory.
 
 ``#!/bin/sh``  
-``nohup python3 bot.py &``
+``nohup python3 path-to-bot/src/bot.py &``
 
 - Make the script executable by running the following command:
 
     ``chmod +x bot-start``
 
-- Now, you can simply run bot.sh to start the bot in the background.
+- Now, you can simply run bot-start to start the bot in the background.
 
 4. If everything is working correctly, you should see a message like "**nohup: ignoring input and appending output to 'nohup.out'**". This indicates that the bot is running and any console output is being redirected to the '**nohup.out**' file.
 
