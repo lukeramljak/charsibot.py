@@ -12,6 +12,12 @@ Before running the bot, make sure you have the following installed:
 
 `` pip install -r requirements.txt ``
 
+3. Add the bot token:
+    1. In the project directory, create a file named .env and add the following lines:
+
+    `` TOKEN=your-bot-token-goes-here``  
+    `` GUILD_ID=your-guild-id-goes-here ``
+
 3. In a VPS, run the bot:
 
 `` nohup python3 bot.py & ``
