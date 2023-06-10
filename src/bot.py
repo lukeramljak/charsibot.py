@@ -1,17 +1,19 @@
 import discord
+from discord.ext import commands
 from dotenv import load_dotenv
 import os
 
 load_dotenv()
 token = os.getenv('TOKEN')
+guild_id = os.getenv('GUILD_ID')
 
-intents = discord.Intents.default()
-intents.message_content = True
-client = discord.Bot()
+client = discord.Bot(intents=discord.Intents.all())
 
 @client.event
 async def on_ready():
     print(f'Logged in as {client.user}')
     print('----------')
+    
+client.load_extension('cogs.greetings')
         
 client.run(token)
