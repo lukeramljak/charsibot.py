@@ -3,3 +3,4 @@ ssh.txt
 .gitignore
 .env
 charsibot.key
+src/cogs/__pycache__
