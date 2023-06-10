@@ -18,7 +18,7 @@ Before running the bot, make sure you have the following installed:
     `` TOKEN=your-bot-token-goes-here``  
     `` GUILD_ID=your-guild-id-goes-here ``
 
-3. In a VPS, run the bot:
+3. Run the bot. I'm using a VPS, so I run the following:
 
 `` nohup python3 bot.py & ``
 
