@@ -107,6 +107,20 @@ class Fun(commands.Cog):
     ):
         await ctx.respond(f'{ctx.author.name} has given {name.mention} a big smooch. MWAHHH! <:Witch:1021275389508734987>')
         
+    @discord.slash_command(
+        description = 'Toss a tomato!',
+        guild_ids = [guild_id]
+    )
+    async def tomato(
+        self,
+        ctx,
+        name: discord.Option(
+            discord.SlashCommandOptionType.user, 'Pick your target!',
+            required = True
+        )
+    ):
+        await ctx.respond(f'{ctx.author.name} threw a tomato at {name.mention}. tomato tomato tomato! <:rip:1057489640636035102>')
+        
     @commands.Cog.listener()
     async def on_message(self, message):
         if message.author == self.bot.user:
@@ -114,16 +128,16 @@ class Fun(commands.Cog):
         
         content = message.content.lower()
         if 'but' in content:
-            await message.reply('butt')
+            await message.channel.send('butt')
             
         if 'cow' in message.content:
-            await message.reply('MOOOOO! <:ANGERY:1021275434823995475>')
+            await message.channel.send('MOOOOO! <:ANGERY:1021275434823995475>')
             
         if 'egg' in message.content:
-            await message.reply('egg')
+            await message.channel.send('egg')
         
         if 'dog' in message.content:
-            await message.reply('what the dog doin\'?')
+            await message.channel.send('what the dog doin\'?')
 
 def setup(client):
     client.add_cog(Fun(client))
