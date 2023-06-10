@@ -7,9 +7,12 @@ token = os.getenv('TOKEN')
 guild_id = os.getenv('GUILD_ID')
 
 client = discord.Bot(intents=discord.Intents.all())
+activity = discord.Activity(name='Big Chungus', type=discord.ActivityType.listening)
 
 @client.event
 async def on_ready():
+    activity = discord.Activity(name='Big Chungus', type=discord.ActivityType.listening)
+    await client.change_presence(activity=activity)
     print(f'Logged in as {client.user.name}')
     print('----------')
 
