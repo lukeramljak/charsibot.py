@@ -15,8 +15,8 @@ Before running the bot, make sure you have the following installed:
 3. Add the bot token:
     1. In the project directory, create a file named .env and add the following lines:
 
-    `` TOKEN=your-bot-token-goes-here``  
-    `` GUILD_ID=your-guild-id-goes-here ``
+    ``TOKEN=your-bot-token-goes-here``  
+    ``GUILD_ID=your-guild-id-goes-here``
 
 3. Run the bot. I'm using a VPS, so I run the following:
 
