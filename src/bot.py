@@ -5,8 +5,9 @@ import os
 load_dotenv()
 token = os.getenv('TOKEN')
 guild_id = os.getenv('GUILD_ID')
+owner_id = os.getenv('OWNER_ID')
 
-client = discord.Bot(owner_id=729571283645366293, intents=discord.Intents.all())
+client = discord.Bot(owner_id=owner_id, intents=discord.Intents.all())
 
 client.remove_application_command('help')
 
