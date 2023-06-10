@@ -9,16 +9,16 @@ class Utilities(commands.Cog):
     def __init__(self, client):
         self.bot = client
         
+    async def is_owner(ctx):
+        return ctx.author.id == 729571283645366293
+        
     @discord.slash_command(
         name = 'clear',
         description = 'Clear a specified number of messages',
         guild_ids = [guild_id],
     )
-    @commands.has_permissions(administrator = True)
-    async def clear(self, ctx, amount: int):
-        if not ctx.author.guild_permissions.administrator:
-            ctx.respond('This command is for administrators only.')
-            
+    @commands.check(is_owner)
+    async def clear(self, ctx, amount: int):            
         if not 1 <= amount <= 100:
             return await ctx.respond('Please provide a valid number of messages to clear (1-100).', ephemeral = True)
         
