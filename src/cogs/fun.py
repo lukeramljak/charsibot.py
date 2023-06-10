@@ -17,21 +17,21 @@ class Fun(commands.Cog):
         self,
         ctx,
         name: discord.Option(
-            discord.SlashCommandOptionType.user,
+            discord.SlashCommandOptionType.user, 'Bonk someone!',
             required = True
         )
     ):
         await ctx.respond(f'{ctx.author.name} has bonked {name.mention}. Oh my...')
         
     @discord.slash_command(
-        description='Someone\'s brain isn\'t working? Let them know!',
+        description='Brain not working?',
         guild_ids = [guild_id]
     )
     async def brain(
         self,
         ctx,
         name: discord.Option(
-            discord.SlashCommandOptionType.user,
+            discord.SlashCommandOptionType.user, 'Brain not working?',
             required = True
         )
     ):
@@ -45,21 +45,21 @@ class Fun(commands.Cog):
         self,
         ctx,
         name: discord.Option(
-            discord.SlashCommandOptionType.user,
+            discord.SlashCommandOptionType.user, 'Tuck someone into bed.',
             required = True
         )
     ):
         await ctx.respond(f'{ctx.author.name} has tucked {name.mention} into a burrito blanket. awwwww goodnight {name.name} <:BurritoBlanket:1021275794678497291>')
         
     @discord.slash_command(
-        description='Give a hug to another user.',
+        description='Hug another user.',
         guild_ids = [guild_id]
     )
     async def hug(
         self,
         ctx,
         name: discord.Option(
-            discord.SlashCommandOptionType.user,
+            discord.SlashCommandOptionType.user, 'Hug another user.',
             required = True
         )
     ):
