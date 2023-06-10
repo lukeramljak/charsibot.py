@@ -27,7 +27,7 @@ class Fun(commands.Cog):
             'It is certain.',
             'It is decidedly so.',
             'Without a doubt.',
-            'Yes - definitely.',
+            'Yes, definitely.',
             'You may rely on it.',
             'As I see it, yes.',
             'Most likely.',
@@ -43,7 +43,17 @@ class Fun(commands.Cog):
             'My reply is no.',
             'My sources say no.',
             'Outlook not so good.',
-            'Very doubtful.'
+            'Very doubtful.',
+            'No way.',
+			'Maybe',
+			'The answer is hiding inside you',
+			'No.',
+			'||No||',
+			'||Yes||',
+			'Hang on',
+			'It\'s over',
+			'It\'s just the beginning',
+			'Good luck',
         ]
         
         response = random.choice(responses)
