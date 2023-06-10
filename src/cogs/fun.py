@@ -17,7 +17,7 @@ class Fun(commands.Cog):
         self,
         ctx,
         name: discord.Option(
-            discord.SlashCommandOptionType.user, 'Who\'s getting bonked?',
+            discord.SlashCommandOptionType.user,
             required = True
         )
     ):
@@ -31,7 +31,7 @@ class Fun(commands.Cog):
         self,
         ctx,
         name: discord.Option(
-            discord.SlashCommandOptionType.user, 'Who is it?',
+            discord.SlashCommandOptionType.user,
             required = True
         )
     ):
@@ -45,7 +45,7 @@ class Fun(commands.Cog):
         self,
         ctx,
         name: discord.Option(
-            discord.SlashCommandOptionType.user, 'Who\'s getting tucked in?',
+            discord.SlashCommandOptionType.user,
             required = True
         )
     ):
