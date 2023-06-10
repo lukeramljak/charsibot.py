@@ -93,6 +93,20 @@ class Fun(commands.Cog):
         quote = quote_data[0]['q']
         await ctx.respond(quote)
         
+    @discord.slash_command(
+        description = 'Give someone a nice big smooch',
+        guild_ids = [guild_id]
+    )
+    async def smooch(
+        self,
+        ctx,
+        name: discord.Option(
+            discord.SlashCommandOptionType.user, 'Give someone a nice big smooch',
+            required = True
+        )
+    ):
+        await ctx.respond(f'{ctx.author.name} has given {name.mention} a big smooch. MWAHHH! <:Witch:1021275389508734987>')
+        
     @commands.Cog.listener()
     async def on_message(self, message):
         if message.author == self.bot.user:
