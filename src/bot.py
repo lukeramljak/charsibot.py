@@ -14,6 +14,6 @@ async def on_ready():
     print(f'Logged in as {client.user}')
     print('----------')
     
-client.load_extension('cogs.greetings')
+client.load_extension('cogs.fun')
         
 client.run(token)
