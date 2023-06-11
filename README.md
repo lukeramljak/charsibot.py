@@ -13,7 +13,7 @@ Before running the bot, make sure you have the following installed:
 `` pip install -r requirements.txt ``
 
 3. Add the bot token:
-    1. In the project directory, create a file named .env and add the following lines:
+- In the project directory, create a file named .env and add the following lines:
 
     ``TOKEN=your-bot-token-goes-here``  
     ``GUILD_ID=your-guild-id-goes-here``
@@ -46,5 +46,5 @@ The following steps assume you running the bot on a VPS with any Linux distro.
 
 6. Detach from the session by either using the '**exit**' command or '**Ctrl + D**'. This will leave the bot running in the background.
 
-    1. When testing the bot locally, make sure to stop the bot process running on your VPS. Running multiple instances of the bot simultaneously can cause conflicts and unexpected behavior. By terminating the bot process on the VPS, you ensure that you are running only one instance of the bot for testing purposes.
-    2. The quickest way to terminate the bot is with '**htop**'. Press F3 to search for '**bot.py**', then F9 to kill. You can also use tools like '**ps**' and '**kill**' to find the bot's process ID (PID) and terminate it. For example, you can use '**ps aux | grep bot.py**' to find the process ID and then use '**kill \<pid>**' to stop the bot.
+- When testing the bot locally, make sure to stop the bot process running on your VPS. Running multiple instances of the bot simultaneously can cause conflicts and unexpected behavior. By terminating the bot process on the VPS, you ensure that you are running only one instance of the bot for testing purposes.
+- The quickest way to terminate the bot is with '**htop**'. Press F3 to search for '**bot.py**', then F9 to kill. You can also use tools like '**ps**' and '**kill**' to find the bot's process ID (PID) and terminate it. For example, you can use '**ps aux | grep bot.py**' to find the process ID and then use '**kill \<pid>**' to stop the bot.
