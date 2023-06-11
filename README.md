@@ -1,5 +1,5 @@
 # charsibot.py
-A Python rewrite of my JavaScript Discord bot built with [Pycord](https://pycord.dev/). This bot is tailored to a specific Discord server, and is not plug and play.
+A basic Discord bot built with [Pycord](https://pycord.dev/). This bot is tailored to a specific Discord server, and is not plug and play.
 
 ## Prerequisites
 Before running the bot, make sure you have the following installed:
@@ -10,13 +10,17 @@ Before running the bot, make sure you have the following installed:
 1. Create a virtual environment.
 2. Install the required dependencies:
 
-`` pip install -r requirements.txt ``
+```bash
+pip install -r requirements.txt
+```
 
 3. Add the bot token:
 - In the project directory, create a file named .env and add the following lines:
 
-    ``TOKEN=your-bot-token-goes-here``  
-    ``GUILD_ID=your-guild-id-goes-here``
+```ini
+TOKEN=your-bot-token-goes-here
+GUILD_ID=your-guild-id-goes-here
+```
 
 ## Deploying the Bot
 The following steps assume you running the bot on a VPS with any Linux distro.
@@ -27,20 +31,30 @@ The following steps assume you running the bot on a VPS with any Linux distro.
 
 3. Run the bot in the background:
 
-`` nohup python3 bot.py & ``
+```bash
+nohup python3 bot.py &
+```
 
 - You may need to run this command frequently when making changes to the bot. To save time, create a shell script named '**bot-start**' in the '**~/.local/bin**' directory. By placing it here, it will be added to your PATH, allowing you to run it from anywhere without navigating to the specific directory.
 
-``#!/bin/sh``  
-``nohup python3 path-to-bot/src/bot.py &``
+```bash
+#!/bin/sh  
+nohup python3 path-to-bot/src/bot.py &
+```
 
 - Make the script executable by running the following command:
 
-    ``chmod +x bot-start``
+```bash
+chmod +x bot-start
+```
 
 - Now, you can simply run bot-start to start the bot in the background.
 
-4. If everything is working correctly, you should see a message like "**nohup: ignoring input and appending output to 'nohup.out'**". This indicates that the bot is running and any console output is being redirected to the '**nohup.out**' file.
+4. If everything is working correctly, you should see a message like:
+```
+nohup: ignoring input and appending output to 'nohup.out.
+```
+This indicates that the bot is running and any console output is being redirected to the '**nohup.out**' file.
 
 5. Check Discord to ensure the bot's status is **Online**. 
 
