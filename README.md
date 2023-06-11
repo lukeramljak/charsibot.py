@@ -1,5 +1,7 @@
 # charsibot.py
-A basic Discord bot built with [Pycord](https://pycord.dev/). This bot is tailored to a specific Discord server, and is not plug and play.
+A basic Discord bot built with [Pycord](https://pycord.dev/). This bot is specifically designed for a personal project and tailored to a specific Discord server. As a result, it may not be suitable for general use or easily adaptable to other servers. 
+
+Feel free to explore the codebase, but please keep in mind that it is primarily maintained for personal use.
 
 ## Prerequisites
 Before running the bot, make sure you have the following installed:
@@ -23,42 +25,71 @@ GUILD_ID=your-guild-id-goes-here
 ```
 
 ## Deploying the Bot
-The following steps assume you running the bot on a VPS with any Linux distro.
+The following steps assume you running the bot on Linux or macOS.
 
 1. Ensure that python3-pip is installed.
 
 2. cd into the bot directory and install dependencies as above.
 
-3. Run the bot in the background:
+3. To quickly start the bot from anywhere, create a shell script named '**bot_start**' in '**~/.local/bin**':
 
 ```bash
-nohup python3 bot.py &
+#!/bin/bash
+
+# Full path to the bot script
+BOT_SCRIPT="/path/to/bot/bot.py"
+
+# Check if the bot script file exists
+if [ ! -f "$BOT_SCRIPT" ]; then
+    echo "Bot script file does not exist: $BOT_SCRIPT"
+    exit 1
+fi
+
+# Check if the bot is already running
+if pgrep -f "$BOT_SCRIPT" >/dev/null; then
+    echo "Bot is already running."
+    exit 1
+fi
+
+# Start the bot
+nohup python3 "$BOT_SCRIPT" >/dev/null 2>&1 &
+echo "Bot started."
 ```
 
-- You may need to run this command frequently when making changes to the bot. To save time, create a shell script named '**bot-start**' in the '**~/.local/bin**' directory. By placing it here, it will be added to your PATH, allowing you to run it from anywhere without navigating to the specific directory.
+- Make the script executable:
 
 ```bash
-#!/bin/sh  
-nohup python3 path-to-bot/src/bot.py &
+chmod +x bot_start
 ```
 
-- Make the script executable by running the following command:
+- Run bot_start.
+
+4. Check Discord to ensure the bot's status is **Online**. 
+
+## Testing the Bot
+
+When testing the bot locally, make sure to stop the existing bot process, to prevent running multiple instances of the bot.
+
+Create a shell script called '**bot_stop**':
 
 ```bash
-chmod +x bot-start
+#!/bin/sh
+
+# Find the process ID (PID) of the bot
+PID=$(ps aux | grep 'bot.py' | grep -v 'grep' | awk '{print $2}')
+
+# Check if the PID is found
+if [ -n "$PID" ]; then
+    # Terminate the bot process
+    kill "$PID"
+    echo "Bot stopped."
+else
+    echo "Bot is not running."
+fi
 ```
 
-- Now, you can simply run bot-start to start the bot in the background.
+- Again, make the script executable:
 
-4. If everything is working correctly, you should see a message like:
+```bash
+chmod +x bot_stop
 ```
-nohup: ignoring input and appending output to 'nohup.out.
-```
-This indicates that the bot is running and any console output is being redirected to the '**nohup.out**' file.
-
-5. Check Discord to ensure the bot's status is **Online**. 
-
-6. Detach from the session by either using the '**exit**' command or '**Ctrl + D**'. This will leave the bot running in the background.
-
-- When testing the bot locally, make sure to stop the bot process running on your VPS. Running multiple instances of the bot simultaneously can cause conflicts and unexpected behavior. By terminating the bot process on the VPS, you ensure that you are running only one instance of the bot for testing purposes.
-- The quickest way to terminate the bot is with '**htop**'. Press F3 to search for '**bot.py**', then F9 to kill. You can also use tools like '**ps**' and '**kill**' to find the bot's process ID (PID) and terminate it. For example, you can use '**ps aux | grep bot.py**' to find the process ID and then use '**kill \<pid>**' to stop the bot.
