@@ -11,10 +11,8 @@ activity = discord.Activity(name='Big Chungus', type=discord.ActivityType.listen
 
 @client.event
 async def on_ready():
-    activity = discord.Activity(name='Big Chungus', type=discord.ActivityType.listening)
     await client.change_presence(activity=activity)
     print(f'Logged in as {client.user.name}')
-    print('----------')
 
 cogs_list = [
     'fun',
