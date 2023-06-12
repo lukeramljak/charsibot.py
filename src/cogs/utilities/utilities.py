@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+from discord.commands import slash_command
 import os
 
 guild_id = os.getenv('GUILD_ID')
@@ -12,7 +13,7 @@ class Utilities(commands.Cog):
     async def is_owner(ctx):
         return ctx.author.id == owner_id
         
-    @discord.slash_command(description='Clear a specified number of messages', guild_ids=[guild_id])
+    @slash_command(description='Clear a specified number of messages', guild_ids=[guild_id])
     @commands.check(is_owner)
     async def clear(self, ctx, amount: int):            
         if not 1 <= amount <= 100:
@@ -27,7 +28,7 @@ class Utilities(commands.Cog):
             print(e)
             await ctx.respond('An error occurred while trying to clear messages.', ephemeral=True)
             
-    @discord.slash_command(description='Check charsibot\'s ping', guild_ids=[guild_id])
+    @slash_command(description='Check charsibot\'s ping', guild_ids=[guild_id])
     async def ping(self, ctx):
         await ctx.send(f'Pong! Bot Latency: {round(ctx.bot.latency * 1000)}ms')
     
