@@ -1,7 +1,7 @@
 # charsibot.py
 A straightforward Discord bot built with [Pycord](https://pycord.dev/). 
 
-This bot was created as a personal project and is tailored to a specific Discord server. Because of this, it might not be appropriate for use in other servers. 
+This bot was created specifically for a personal project and is tailored to a specific Discord server. Because of this, it might not be appropriate for use in other servers. 
 
 ## Requirements
 Make sure you have the following installed before running the bot:
