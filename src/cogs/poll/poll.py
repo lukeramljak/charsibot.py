@@ -1,8 +1,8 @@
 import discord
-from discord.ext import commands, ui
-from discord.commands import Option
-from discord.commands import slash_command
-from discord.ui import button
+from discord.ext import commands
+import os
+
+guild_id = os.getenv('GUILD_ID')
 
 # from pogrammar/Discord-multipurpose-bot
 
@@ -10,11 +10,11 @@ class Poll(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @slash_command(guild_ids=[...])
+    @commands.slash_command(guild_ids=[guild_id])
     async def poll(ctx,
-                   question: Option(str),
-                   a: Option(str),
-                   b: Option(str)):
+                   question: str,
+                   a: str,
+                   b: str):
         embed = discord.Embed(title=question,
                               description=f"🅰️: {a}\n 🅱️: {b}")
         await ctx.respond(embed=embed)
