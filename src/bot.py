@@ -11,10 +11,8 @@ activity = discord.Activity(name='Big Chungus', type=discord.ActivityType.listen
 
 @client.event
 async def on_ready():
-    activity = discord.Activity(name='Big Chungus', type=discord.ActivityType.listening)
     await client.change_presence(activity=activity)
     print(f'Logged in as {client.user.name}')
-    print('----------')
 
 for foldername in os.listdir('./cogs'): # for every folder in cogs
     for filename in os.listdir(f'./cogs{foldername}'): # for every file in a folder in cogs
