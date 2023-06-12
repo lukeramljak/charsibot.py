@@ -16,12 +16,9 @@ async def on_ready():
     print(f'Logged in as {client.user.name}')
     print('----------')
 
-cogs_list = [
-    'fun',
-    'utilities'
-]
-
-for cog in cogs_list:
-    client.load_extension(f'cogs.{cog}')
+for foldername in os.listdir('./cogs'): # for every folder in cogs
+    for filename in os.listdir(f'./cogs{foldername}'): # for every file in a folder in cogs
+        if filename.endswith('.py') and not filename in ['util.py', 'error.py']: # if the file is a python file and if the file is a cog
+            client.load_extension(f'cogs.{foldername}.{filename[:-3]}') # load the extension
         
 client.run(token)
