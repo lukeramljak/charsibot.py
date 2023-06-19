@@ -29,8 +29,8 @@ class Utilities(commands.Cog):
             await ctx.respond('An error occurred while trying to clear messages.', ephemeral=True)
             
     @slash_command(description='Check charsibot\'s ping', guild_ids=[guild_id])
-    async def ping(self, ctx):
-        await ctx.send(f'Pong! Bot Latency: {round(ctx.bot.latency * 1000)}ms')
+    async def ping(self, ctx: discord.ApplicationContext):
+        await ctx.respond(f'Pong! charsibot latency: {int(ctx.bot.latency * 1000)}ms.')
     
 def setup(bot):
     bot.add_cog(Utilities(bot))
