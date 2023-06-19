@@ -1,10 +1,10 @@
 # charsibot.py
-A basic Discord bot built with [Pycord](https://pycord.dev/). This bot is specifically designed for a personal project and tailored to a specific Discord server. As a result, it may not be suitable for general use or easily adaptable to other servers. 
+A straightforward Discord bot built with [Pycord](https://pycord.dev/). 
 
-Feel free to explore the codebase, but please keep in mind that it is primarily maintained for personal use.
+This bot was created specifically for a personal project and is tailored to a specific Discord server. Because of this, it might not be appropriate for use in other servers. 
 
-## Prerequisites
-Before running the bot, make sure you have the following installed:
+## Requirements
+Make sure you have the following installed before running the bot:
 - Python 3.8 or higher
 - Required Python packages (listed in requirements.txt)
 
@@ -17,7 +17,7 @@ pip install -r requirements.txt
 ```
 
 3. Add the bot token:
-- In the project directory, create a file named .env and add the following lines:
+- In the main directory, create a file named .env and add the following lines:
 
 ```ini
 TOKEN=your-bot-token-goes-here
