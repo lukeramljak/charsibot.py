@@ -7,8 +7,8 @@ guild_id = os.getenv('GUILD_ID')
 owner_id = os.getenv('OWNER_ID')
 
 class Utilities(commands.Cog):
-    def __init__(self, client):
-        self.bot = client
+    def __init__(self, bot):
+        self.bot = bot
         
     async def is_owner(ctx):
         return ctx.author.id == owner_id
@@ -32,5 +32,5 @@ class Utilities(commands.Cog):
     async def ping(self, ctx):
         await ctx.send(f'Pong! Bot Latency: {round(ctx.bot.latency * 1000)}ms')
     
-def setup(client):
-    client.add_cog(Utilities(client))
+def setup(bot):
+    bot.add_cog(Utilities(bot))

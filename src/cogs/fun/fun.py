@@ -9,8 +9,8 @@ guild_id = os.getenv('GUILD_ID')
 
 class Fun(commands.Cog):
         
-    def __init__(self, client):
-        self.bot = client
+    def __init__(self, bot):
+        self.bot = bot
         
     @slash_command(description='Ask the magic 8-ball a question', guild_ids=[guild_id])
     async def magic8ball(self, ctx, question: str):
@@ -106,5 +106,5 @@ class Fun(commands.Cog):
         if 'dog' in message.content:
             await message.channel.send('what the dog doin\'?')
 
-def setup(client):
-    client.add_cog(Fun(client))
+def setup(bot):
+    bot.add_cog(Fun(bot))
