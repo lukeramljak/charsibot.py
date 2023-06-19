@@ -14,8 +14,10 @@ class Utilities(commands.Cog):
         return ctx.author.id == owner_id
         
     @slash_command(description='Clear a specified number of messages', guild_ids=[guild_id])
-    @commands.check(is_owner)
-    async def clear(self, ctx, amount: int):            
+    async def clear(self, ctx, amount: int):
+        if not await self.bot.is_owner(ctx.author):
+            return await ctx.respond('You do not have permission to use this command.', ephemeral=True)
+                                                 
         if not 1 <= amount <= 100:
             return await ctx.respond('Please provide a valid number of messages to clear (1-100).', ephemeral=True)
         
