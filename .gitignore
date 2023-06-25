@@ -2,4 +2,6 @@ venv
 .gitignore
 .env
 src/cogs/__pycache__
+src/cogs/fun/__pycache__
+src/cogs/utilities/__pycache__
 nohup.out
