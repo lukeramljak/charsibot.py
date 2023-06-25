@@ -52,15 +52,15 @@ class Fun(commands.Cog):
             
     @slash_command(description='Bonk someone!', guild_ids=[guild_id])
     async def bonk(self, ctx, name: discord.Member):
-        await ctx.send(f'{ctx.author.name} has bonked {name.mention}. Oh my...')
+        await ctx.respond(f'{ctx.author.name} has bonked {name.mention}. Oh my...')
         
     @slash_command(description='Brain not working?', guild_ids=[guild_id])
     async def brain(self, ctx, name: discord.Member):
-        await ctx.send(f'Oh dear, it looks like {name.mention}\'s brain has stopped working... Please wait a moment while it restarts. <:rip:1057489640636035102>')
+        await ctx.respond(f'Oh dear, it looks like {name.mention}\'s brain has stopped working... Please wait a moment while it restarts. <:rip:1057489640636035102>')
         
     @slash_command(description='Tuck someone into bed', guild_ids=[guild_id])
     async def burrito(self, ctx, name: discord.Member):
-        await ctx.send(f'{ctx.author.name} has tucked {name.mention} into a burrito blanket. awwwww goodnight {name.name} <:BurritoBlanket:1021275794678497291>')
+        await ctx.respond(f'{ctx.author.name} has tucked {name.mention} into a burrito blanket. awwwww goodnight {name.name} <:BurritoBlanket:1021275794678497291>')
         
     @slash_command(description='Get a random dad joke', guild_ids=[guild_id])
     async def dadjoke(self, ctx):
@@ -82,11 +82,11 @@ class Fun(commands.Cog):
         
     @slash_command(description='Give someone a nice big smooch', guild_ids=[guild_id])
     async def smooch(self, ctx, name: discord.Member):
-        await ctx.send(f'{ctx.author.name} has given {name.mention} a big smooch. MWAHHH! <:Witch:1021275389508734987>')
+        await ctx.respond(f'{ctx.author.name} has given {name.mention} a big smooch. MWAHHH! <:Witch:1021275389508734987>')
 
     @slash_command(description='Toss a tomato!', guild_ids=[guild_id])
     async def tomato(self, ctx, name: discord.Member):
-        await ctx.send(f'{ctx.author.name} threw a tomato at {name.mention}. tomato tomato tomato! <:rip:1057489640636035102>')
+        await ctx.respond(f'{ctx.author.name} threw a tomato at {name.mention}. tomato tomato tomato! <:rip:1057489640636035102>')
         
     @commands.Cog.listener()
     async def on_message(self, message):
