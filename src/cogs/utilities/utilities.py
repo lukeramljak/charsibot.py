@@ -10,7 +10,7 @@ class Utilities(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         
-    async def is_owner(ctx):
+    async def is_owner(self, ctx):
         return ctx.author.id == owner_id
         
     @slash_command(description='Clear a specified number of messages', guild_ids=[guild_id])
