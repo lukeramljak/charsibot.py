@@ -106,5 +106,10 @@ class Fun(commands.Cog):
         if 'dog' in message.content:
             await message.channel.send('what the dog doin\'?')
 
+        if 'ass' in message.content:
+            with open('assets/gifs/did-you.gif', 'rb') as gif_file:
+                gif = discord.File(gif_file)
+                await message.channel.send(file=gif)
+
 def setup(bot):
     bot.add_cog(Fun(bot))
