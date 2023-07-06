@@ -1,3 +1,4 @@
+import discord
 from discord.ext import commands
 from discord.commands import slash_command
 import os
@@ -34,6 +35,36 @@ class Utilities(commands.Cog):
     @slash_command(description="Check charsibot's ping", guild_ids=[guild_id])
     async def ping(self, ctx):
         await ctx.respond(f"Pong! charsibot latency: {int(ctx.bot.latency * 1000)}ms.")
+
+    @slash_command(description="Report to Moderators", guild_id=[guild_id])
+    async def report_message(self, ctx, message: discord.Message):
+        await ctx.respond(
+            f"Thanks for reporting this message by {message.author.mention} to our moderators.",
+            ephemeral=True,
+        )
+
+        # Handle report by sending it into a log channel
+        log_channel = ctx.guild.get_channel(1018070065423335437)
+
+        embed = discord.Embed(title="Reported Message")
+        if message.content:
+            embed.description = message.content
+
+        embed.set_author(
+            name=message.author.display_name, icon_url=message.author.display_avatar.url
+        )
+        embed.timestamp = message.created_at
+
+        url_view = discord.ui.View()
+        url_view.add_item(
+            discord.ui.Button(
+                label="Go to Message",
+                style=discord.ButtonStyle.url,
+                url=message.jump_url,
+            )
+        )
+
+        await log_channel.send(embed=embed, view=url_view)
 
 
 def setup(bot):
