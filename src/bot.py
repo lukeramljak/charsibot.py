@@ -6,7 +6,7 @@ load_dotenv()
 token = os.getenv("TOKEN")
 guild_id = os.getenv("GUILD_ID")
 
-bot = discord.Bot(intents=discord.Intents.default())
+bot = discord.Bot(intents=discord.Intents.all())
 activity = discord.Activity(name="Big Chungus", type=discord.ActivityType.listening)
 
 
