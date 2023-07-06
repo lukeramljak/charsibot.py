@@ -10,9 +10,6 @@ class Utilities(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    async def is_owner(self, ctx):
-        return ctx.author.id == owner_id
-
     @slash_command(description="Clear some messages", guild_ids=[guild_id])
     async def clear(self, ctx, amount: int):
         if not 1 <= amount <= 100:
