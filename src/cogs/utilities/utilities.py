@@ -12,6 +12,7 @@ class Utilities(commands.Cog):
         self.bot = bot
 
     @slash_command(description="Clear some messages", guild_ids=[guild_id])
+    @discord.default_permissions(administrator=True)
     async def clear(self, ctx, amount: int):
         if not 1 <= amount <= 100:
             return await ctx.respond(
