@@ -10,8 +10,6 @@ Make sure you have the following installed before running the bot:
 
 - Python 3.8 or higher
 
-- Required Python packages (listed in requirements.txt)
-
 ## Getting Started
 
 1. Create a virtual environment.
@@ -39,65 +37,37 @@ The following steps assume you running the bot on Linux or macOS.
 
 2. Enter the bot directory and install dependencies as above.
 
-3. To quickly start the bot from anywhere, create a shell script named '**bot_start**' in '**~/.local/bin**':
+3. To quickly start and stop the bot, create a script named '**charsibot**' in '**~/.local/bin**':
 
     ```bash
     #!/bin/bash
-
-    # Full path to the bot script
-    BOT_SCRIPT="/path/to/bot/bot.py"
-
-    # Check if the bot script file exists
-    if [ ! -f "$BOT_SCRIPT" ]; then
-        echo "Bot script file does not exist: $BOT_SCRIPT"
+    
+    case "$1" in
+      "start")
+        cd ~/charsibot.py/src && nohup python3 bot.py >/dev/null 2>&1 &
+        ;;
+      "stop")
+        pkill -f "python3 /home/ubuntu/charsibot.py/src/bot.py"
+        ;;
+      *)
+        echo "Usage: charsibot [start|stop]"
         exit 1
-    fi
-
-    # Check if the bot is already running
-    if pgrep -f "$BOT_SCRIPT" >/dev/null; then
-        echo "Bot is already running."
-        exit 1
-    fi
-
-    # Start the bot
-    nohup python3 "$BOT_SCRIPT" >/dev/null 2>&1 &
-    echo "Bot started."
+        ;;
+    esac
+    
     ```
 
     - Make the script executable:
 
         ```bash
-        chmod +x bot_start
+        chmod +x charsibot
         ```
 
-    - Run **bot_start**.
+    - Run **charsibot start**.
 
 4. Check Discord to ensure the bot's status is **Online**.
 
 ## Testing the Bot
 
 When testing the bot locally, make sure to stop the existing bot process, to prevent running multiple instances of the bot.
-
-Create a shell script called '**bot_stop**':
-
-```bash
-#!/bin/sh
-
-# Find the process ID (PID) of the bot
-PID=$(ps aux | grep 'bot.py' | grep -v 'grep' | awk '{print $2}')
-
-# Check if the PID is found
-if [ -n "$PID" ]; then
-    # Terminate the bot process
-    kill "$PID"
-    echo "Bot stopped."
-else
-    echo "Bot is not running."
-fi
-```
-
-Again, make the script executable:
-
-```bash
-chmod +x bot_stop
-```
+Optionally, create a test branch and new Discord application to avoid bot downtime.
