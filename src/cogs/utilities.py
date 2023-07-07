@@ -11,7 +11,7 @@ class Utilities(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @slash_command(description="Clear some messages", guild_ids=[guild_id])
+    @slash_command(description="Clear some messages", guild_id=[guild_id])
     @discord.default_permissions(administrator=True)
     async def clear(self, ctx, amount: int):
         if not 1 <= amount <= 100:
@@ -33,7 +33,7 @@ class Utilities(commands.Cog):
                 "An error occurred while trying to clear messages.", ephemeral=True
             )
 
-    @slash_command(description="Check charsibot's ping", guild_ids=[guild_id])
+    @slash_command(description="Check charsibot's ping", guild_id=[guild_id])
     async def ping(self, ctx):
         await ctx.respond(f"Pong! charsibot latency: {int(ctx.bot.latency * 1000)}ms.")
 
