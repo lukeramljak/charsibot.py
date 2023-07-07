@@ -44,7 +44,7 @@ The following steps assume you running the bot on Linux or macOS.
     
     case "$1" in
       "start")
-        cd /path/to/bot/src && nohup python3 bot.py >/dev/null 2>&1 &
+        nohup python3 bot.py >/dev/null 2>&1 &
         ;;
       "stop")
         pkill -f "python3 bot.py"
