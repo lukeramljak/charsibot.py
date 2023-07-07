@@ -67,6 +67,11 @@ class Fun(commands.Cog):
             f"awwwww goodnight {name.mention} <:BurritoBlanket:1021275794678497291>"
         )
 
+    @slash_command(description="Flip a coin", guild_id=[guild_id])
+    async def coinflip(self, ctx):
+        result = ["heads", "tails"]
+        await ctx.respond(f"The coin landed on {random.choice(result)}.")
+
     @slash_command(description="Get a random dad joke", guild_ids=[guild_id])
     async def dadjoke(self, ctx):
         response = requests.get(
