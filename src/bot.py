@@ -16,9 +16,7 @@ async def on_ready():
     print(f"Logged in as {bot.user}")
 
 
-for folder in os.listdir("./cogs"):
-    for file in os.listdir(f"./cogs/{folder}"):
-        if file.endswith(".py"):
-            bot.load_extension(f"cogs.{folder}.{file[:-3]}")
+for cog in ("fun", "utilities"):
+    bot.load_extension(f"cogs.{cog}")
 
 bot.run(token)
