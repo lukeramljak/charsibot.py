@@ -70,4 +70,4 @@ The following steps assume you running the bot on Linux or macOS.
 ## Testing the Bot
 
 When testing the bot locally, make sure to stop the existing bot process, to prevent running multiple instances of the bot.
-Optionally, create a test branch and new Discord application to avoid bot downtime.
+Optionally, create a test branch and a new Discord application to avoid bot downtime.
