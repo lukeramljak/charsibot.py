@@ -44,10 +44,10 @@ The following steps assume you running the bot on Linux or macOS.
     
     case "$1" in
       "start")
-        cd ~/charsibot.py/src && nohup python3 bot.py >/dev/null 2>&1 &
+        cd /path/to/bot/src && nohup python3 bot.py >/dev/null 2>&1 &
         ;;
       "stop")
-        pkill -f "python3 /home/ubuntu/charsibot.py/src/bot.py"
+        pkill -f "python3 bot.py"
         ;;
       *)
         echo "Usage: charsibot [start|stop]"
