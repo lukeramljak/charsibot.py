@@ -4,7 +4,6 @@ from discord.commands import slash_command
 import os
 
 guild_id = os.getenv("GUILD_ID")
-owner_id = os.getenv("OWNER_ID")
 
 
 class Utilities(commands.Cog):
@@ -23,10 +22,9 @@ class Utilities(commands.Cog):
         try:
             messages = await ctx.channel.purge(limit=amount)
             message_count = len(messages)
-            response = (
-                f'{message_count} {"message" if message_count == 1 else "messages"}'
+            await ctx.respond(
+                f"Successfully cleared {message_count} messages.", ephemeral=True
             )
-            await ctx.respond(f"Successfully cleared {response}.", ephemeral=True)
         except Exception as e:
             print(e)
             await ctx.respond(
