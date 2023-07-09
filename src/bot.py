@@ -1,8 +1,7 @@
 import discord
-from discord.ext import commands
 from dotenv import load_dotenv
+from error import cooldown_error
 import os
-import random
 
 load_dotenv()
 token = os.getenv("TOKEN")
@@ -22,25 +21,7 @@ async def on_ready():
 async def on_application_command_error(
     ctx: discord.ApplicationContext, error: discord.DiscordException
 ):
-    cooldown_responses = [
-        "Slow down buddy",
-        "Not so fast",
-        "Sorry I'm a bit slow",
-        "Woah woah woah",
-        "Try again later",
-        "Hmmm",
-        "Beep boop",
-        "Ahem",
-        "Does not compute",
-        "Your spam made me sad",
-        "I don't wanna :pleading_face::point_right::point_left:",
-    ]
-    if isinstance(error, commands.CommandOnCooldown):
-        await ctx.respond(
-            f"{random.choice(cooldown_responses)}. This command is on cooldown."
-        )
-    else:
-        raise error
+    await cooldown_error(ctx, error)
 
 
 for cog in ("fun", "listeners", "utilities"):
