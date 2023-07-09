@@ -25,7 +25,7 @@ async def cooldown_error(
         "Calm down, Flash. Even I need a cooldown once in a while.",
         "Did you expect the cooldown to vanish just because you want it to? Sorry, not sorry.",
         "Hey there, speedy Gonzales. Give this command a rest, will ya?",
-        "Oh, the joys of cooldowns. Makes you appreciate me even more, doesn't it?"
+        "Oh, the joys of cooldowns. Makes you appreciate me even more, doesn't it?",
         "I don't wanna :pleading_face::point_right::point_left:",
     ]
 
