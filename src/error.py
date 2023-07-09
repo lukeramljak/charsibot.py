@@ -27,6 +27,7 @@ async def cooldown_error(
         "Hey there, speedy Gonzales. Give this command a rest, will ya?",
         "Oh, the joys of cooldowns. Makes you appreciate me even more, doesn't it?",
         "I don't wanna :pleading_face::point_right::point_left:",
+        "That's rude. Try again shortly.",
     ]
 
     if isinstance(error, commands.CommandOnCooldown):
