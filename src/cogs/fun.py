@@ -1,11 +1,9 @@
 import discord
 from discord.commands import slash_command
 from discord.ext import commands
-import os
 import random
 import requests
-
-guild_id = os.getenv("GUILD_ID")
+from bot import guild_id
 
 
 class Fun(commands.Cog):

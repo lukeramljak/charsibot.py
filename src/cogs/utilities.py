@@ -1,9 +1,7 @@
 import discord
 from discord.ext import commands
 from discord.commands import slash_command
-import os
-
-guild_id = os.getenv("GUILD_ID")
+from bot import guild_id
 
 
 class Utilities(commands.Cog):
