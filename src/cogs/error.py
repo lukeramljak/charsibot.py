@@ -32,15 +32,7 @@ class CommandErrorHandler(commands.Cog):
 
     @commands.Cog.listener()
     async def on_application_command_error(self, ctx, error):
-        if isinstance(error, commands.CommandNotFound):
-            await ctx.respond(
-                "Invalid command. Please check your command and try again."
-            )
-        elif isinstance(error, commands.MissingRequiredArgument):
-            await ctx.respond(
-                "Missing required argument. Please provide all the necessary arguments."
-            )
-        elif isinstance(error, commands.CheckFailure):
+        if isinstance(error, commands.CheckFailure):
             await ctx.respond("You don't have permission to use this command.")
         elif isinstance(error, commands.CommandOnCooldown):
             await ctx.respond(random.choice(self.cooldown_responses))
