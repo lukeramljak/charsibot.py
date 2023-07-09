@@ -1,4 +1,5 @@
 import discord
+from discord.ext import commands
 from dotenv import load_dotenv
 import os
 
@@ -16,7 +17,17 @@ async def on_ready():
     print(f"Logged in as {bot.user}")
 
 
-for cog in ("fun", "utilities"):
+@bot.event
+async def on_application_command_error(
+    ctx: discord.ApplicationContext, error: discord.DiscordException
+):
+    if isinstance(error, commands.CommandOnCooldown):
+        await ctx.respond("This command is currently on cooldown!")
+    else:
+        raise error
+
+
+for cog in ("fun", "listeners", "utilities"):
     bot.load_extension(f"cogs.{cog}")
 
 bot.run(token)

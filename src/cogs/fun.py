@@ -68,6 +68,7 @@ class Fun(commands.Cog):
         )
 
     @slash_command(description="Flip a coin", guild_id=[guild_id])
+    @commands.cooldown(1, 5, commands.BucketType.user)
     async def coinflip(self, ctx):
         result = ["heads", "tails"]
         await ctx.respond(f"The coin landed on {random.choice(result)}.")
@@ -108,29 +109,6 @@ class Fun(commands.Cog):
             f"{ctx.author.mention} threw a tomato at {name.mention}. "
             "tomato tomato tomato! <:rip:1057489640636035102>"
         )
-
-    @commands.Cog.listener()
-    async def on_message(self, message):
-        if message.author == self.bot.user:
-            return
-
-        content = message.content.lower()
-        if "but" in content:
-            await message.channel.send("butt")
-
-        if "cow" in message.content:
-            await message.channel.send("MOOOOO! <:ANGERY:1021275434823995475>")
-
-        if "egg" in message.content:
-            await message.channel.send("egg")
-
-        if "dog" in message.content:
-            await message.channel.send("what the dog doin'?")
-
-        if "ass" in message.content:
-            with open("assets/gifs/did-you.gif", "rb") as gif_file:
-                gif = discord.File(gif_file)
-                await message.channel.send(file=gif)
 
 
 def setup(bot):
