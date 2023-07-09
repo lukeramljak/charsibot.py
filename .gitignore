@@ -1,8 +1,6 @@
 venv
-.gitignore
 .env
-src/cogs/__pycache__
-src/cogs/fun/__pycache__
-src/cogs/utilities/__pycache__
+.DS_Store
+__pycache__
 nohup.out
 .mypy_cache
