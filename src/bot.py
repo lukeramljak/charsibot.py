@@ -27,7 +27,7 @@ async def on_application_command_error(
         raise error
 
 
-for cog in ("fun", "utilities"):
+for cog in ("fun", "listeners", "utilities"):
     bot.load_extension(f"cogs.{cog}")
 
 bot.run(token)
